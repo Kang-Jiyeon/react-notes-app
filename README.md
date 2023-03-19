@@ -1,3 +1,3 @@
 # react-notes-app
  
- reference : youtube by Chris Blakely - React Notes App Tutorial from Scratch
+ Reference : Youtube by Chris Blakely - React Notes App Tutorial from Scratch
