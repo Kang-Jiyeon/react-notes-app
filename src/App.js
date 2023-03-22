@@ -5,31 +5,16 @@ import Search from "./components/Search";
 import Header from "./components/Header";
 
 function App() {
-  const [notes, setNotes] = useState(() => {
-    const savedNotes = JSON.parse(localStorage.getItem("react-notes-app-data"));
-    return savedNotes || [];
-  });
-  // const [notes, setNotes] = useState([]);
+  const localMemoState = localStorage.getItem("react-notes-app-data");
+  const initialMemoList = localMemoState ? JSON.parse(localMemoState) : [];
 
   const [searchText, setSearchText] = useState("");
-
+  const [notes, setNotes] = useState(initialMemoList);
   const [darkMode, setDarkMode] = useState(false);
 
   useEffect(() => {
     localStorage.setItem("react-notes-app-data", JSON.stringify(notes));
   }, [notes]);
-
-  // useEffect(() => {
-  //   const savedNotes = JSON.parse(localStorage.getItem("react-notes-app-data"));
-
-  //   if (savedNotes) {
-  //     setNotes(savedNotes);
-  //   }
-  // }, []);
-
-  // useEffect(() => {
-  //   localStorage.setItem("react-notes-app-data", JSON.stringify(notes));
-  // }, [notes]);
 
   const addNote = (text) => {
     const date = new Date();
